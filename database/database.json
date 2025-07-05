@@ -1,0 +1,12 @@
+{
+  "users": {
+    "Fariz": {
+      "email": "farizgd331@gmail.com",
+      "password": "whtgmgwhy",
+      "role": "premium",
+      "apiKey": "FarizGD",
+      "usage": 4
+    }
+  },
+  "chats": {}
+}

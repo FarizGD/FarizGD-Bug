@@ -1,0 +1,33 @@
+{
+  "name": "FarizGD-Bug",
+  "version": "3.0",
+  "description": "Script Bug via Web",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "multi device"
+  ],
+  "author": "FarizGD",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/boom": "latest",
+    "@kagenoureal/baileys": "latest",
+    "express": "latest",
+    "express-rate-limit": "latest",
+    "express-session": "latest",
+    "fs-extra": "latest",
+    "gradient-string": "^3.0.0",
+    "js-confuser": "latest",
+    "os": "latest",
+    "path": "latest",
+    "webcrack": "latest",
+    "pino": "latest",
+    "telegraf": "latest",
+    "user-agent": "^1.0.4",
+    "user-agents": "^1.1.549"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

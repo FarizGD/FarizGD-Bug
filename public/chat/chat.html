@@ -1,0 +1,59 @@
+<!-- public/chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat wth FarizGD</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .chat-box { max-width: 600px; margin: auto; border: 1px solid #aaa; padding: 20px; border-radius: 8px; }
+    .message { margin-bottom: 10px; }
+    .user { text-align: right; }
+    .bot { text-align: left; }
+    .input-row { display: flex; gap: 10px; }
+    input, button { padding: 10px; font-size: 16px; }
+    #response { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="chat-box">
+    <h2>Chat wth FarizGD</h2>
+    <div id="messages"></div>
+    <div class="input-row">
+      <input type="text" id="userInput" placeholder="Type a message..." />
+      <button onclick="send()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    async function send() {
+      const input = document.getElementById("userInput");
+      const message = input.value;
+      if (!message) return;
+
+      appendMessage("you", message);
+      input.value = "";
+
+      try {
+        const res = await fetch("/ai", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message }),
+        });
+        const data = await res.json();
+        appendMessage("FarizGD", data.response);
+      } catch (err) {
+        appendMessage("error", "Failed to talk to FarizGD...");
+      }
+    }
+
+    function appendMessage(sender, text) {
+      const msgBox = document.getElementById("messages");
+      const div = document.createElement("div");
+      div.className = "message " + (sender === "you" ? "user" : "bot");
+      div.innerText = `${sender}: ${text}`;
+      msgBox.appendChild(div);
+    }
+  </script>
+</body>
+</html>
